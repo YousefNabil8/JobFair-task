@@ -1,0 +1,57 @@
+.inner img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.row p {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+body {
+    background-color: rgb(223, 223, 195);
+}
+
+.main {
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(50px);
+    border: 1px rgb(175, 173, 173) solid;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 3px);
+    opacity: 1;
+    animation: animation;
+    animation-duration: 2s;
+    transition: all 1s;
+}
+
+@keyframes animation {
+    0% {
+        transform: translatey(100%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translatey(-5%);
+
+    }
+
+    100% {
+        transform: translatey(0%);
+        opacity: 1;
+    }
+}
+
+.inner {
+    display: flex;
+    justify-content: center;
+}
+
+.inner-footer {
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    filter: drop-shadow(2px 2px 3px);
+}
