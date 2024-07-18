@@ -8,13 +8,17 @@
     padding: 0;
     margin-bottom: 0;
 }
-
+.not-found{
+position: absolute;    
+left: 50%;
+transform: translateX(-50%);
+}
 body {
-    background-color: rgb(223, 223, 195);
+    background-image: linear-gradient(to bottom , rgb(175, 235, 202) ,80%, rgb(183, 241, 191));
 }
 
 .main {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.993);
     backdrop-filter: blur(50px);
     border: 1px rgb(175, 173, 173) solid;
     border-radius: 8px;

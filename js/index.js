@@ -145,9 +145,9 @@ function displayMain(arr) {
         let Details = ``;
         arr[i].transactions.forEach(transaction => {
             Details += `
-            <div class="row  footer border border-top border-1 mt-2 ">
+            <div class="row  footer border border-top border-1 mt-2  ">
                 <div class="col-4">
-                    <div class="inner-footer">
+                    <div class="inner-footer ">
                         <p class="fw-bold">${getDayOfWeek(transaction.date)}</p>
                     </div>
                 </div>
@@ -224,26 +224,25 @@ function displayMain(arr) {
         });
     });
 }
-$('.form-control').on('input',function () {
-    searchName(searchInput.value)
+$('.form-control').on('input', function () {
+    search(searchInput.value);
+});
 
-})
-
-function searchName(term) {
+function search(term) {
     let mainBox = ``;
+
     for (let i = 0; i < mainData.length; i++) {
-        if (mainData[i].customer_name.toLowerCase().includes(term.toLowerCase()) == true) {
+        if (mainData[i].customer_name.toLowerCase().includes(term.toLowerCase()) || mainData[i].balance == term) {
             function getDayOfWeek(dateString) {
                 let date = new Date(dateString);
                 let options = { weekday: 'long' };
-                let dayOfWeek = date.toLocaleDateString('EN-us', options);
-                return dayOfWeek;
+                return date.toLocaleDateString('en-US', options);
             }
-
+    
             let Details = ``;
             mainData[i].transactions.forEach(transaction => {
                 Details += `
-                <div class="row footer border border-top border-1 mt-2 ">
+                <div class="row footer border border-top border-1 mt-2">
                     <div class="col-4">
                         <div class="inner-footer">
                             <p class="fw-bold">${getDayOfWeek(transaction.date)}</p>
@@ -262,9 +261,9 @@ function searchName(term) {
                 </div>
                 `;
             });
-
+    
             mainBox += `
-            <div class="row mt-2 main p-1 d-flex align-items-center justify-content-center">
+            <div class="row mt-2 main p-1 d-flex align-items-center justify-content-center ">
                 <div class="col-3">
                     <div class="inner">
                         <img src="images/1-${mainData[i].customer_id}.jpg" alt="" class="">
@@ -293,7 +292,13 @@ function searchName(term) {
             `;
         }
     }
-
+    
+    if (mainBox === ``) {
+        mainBox = `
+        <img src="images/3363936.webp" alt="" class="w-50 not-found">
+        `;
+    }
+    
     document.getElementById("mainCard").innerHTML = mainBox;
 
     mainData.forEach((data, index) => {
